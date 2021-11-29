@@ -1,14 +1,16 @@
 import React from 'react';
-import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import "./app.css"
+import { Button } from "./components/Button"
+import { Typography } from './components/Typography';
 
 const App = () => {
   return (
-    <Stack spacing={1}>
-      <Skeleton variant="text" />
-      <Skeleton variant="circular" width={40} height={40} />
-      <Skeleton variant="rectangular" width={210} height={118} />
-    </Stack>
+    <div>
+      <Button primary>Login 2</Button>
+      <Button secondary large>Login 2</Button>
+      <Typography> Teste </Typography>
+    </div>
   );
 }
 

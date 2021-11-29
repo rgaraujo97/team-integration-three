@@ -1,0 +1,27 @@
+.button {
+    font-size: 16px;
+    cursor: pointer;
+    padding: 12px 40px;
+    background-color: none;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+}
+
+.primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.secondary {
+    background-color: #13c4a3;
+    color: white;
+}
+
+.secondary:hover {
+    background-color: #025243;
+}
+
+.large {
+    padding: 12px 120px;
+}
