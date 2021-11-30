@@ -1,0 +1,21 @@
+footer{
+    
+position: absolute;
+width: 292px;
+height: 24px;
+left: 208px;
+/* top: 980px; */
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 24px;
+color: #8D9091;
+
+margin:880px 207px 20px 941px;
+}
+
+footer p{
+    text-align: center;
+}

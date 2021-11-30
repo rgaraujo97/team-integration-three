@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Login.css';
 
 const Login = () => {
 
@@ -6,15 +7,16 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
-    
+    event.preventDefault();
   }
 
   return (
-    <div>
-      <form type='submit'>
-        <input type='text' name='username' value={username} onChange={(event) => setUsername(event.target.value)} />
-        <input type='password' name='password' value={password} onChange={(event) => setPassword(event.target.value)} />
-        <button onClick={handleSubmit}>Login</button>
+    <div className='container'>
+      <form onSubmit={handleSubmit}>
+        <input className='input-1' type='text' placeholder='Username' name='username' value={username} onChange={(event) => setUsername(event.target.value)} />
+        <input className='input-2' type='password' placeholder='Password' name='password' value={password} onChange={(event) => setPassword(event.target.value)} />
+        <button className='login-btn' onClick={handleSubmit}>Login</button>
+        <div className='loader'></div>
       </form>
    </div>
   );
