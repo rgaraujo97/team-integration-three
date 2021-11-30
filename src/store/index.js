@@ -42,17 +42,16 @@ const auth =(state= initialState, action) => {
         error: action.data
       }
 
-      case 'LOGIN_SUCCESS':
-        return{
-          status: SUCCESS,
-          error: action.data
-        }
+    case 'LOGIN_SUCCESS':
+      return{
+        status: SUCCESS,
+      }
 
-      case 'LOGIN_FAILED':
+     case 'LOGIN_FAILED':
         return{
-          status: ERROR,
-          error:action.data
-        }
+        status: ERROR,
+        error:action.data
+      }
 
         default:
           return state;
