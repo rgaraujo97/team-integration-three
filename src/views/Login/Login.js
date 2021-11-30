@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
-import {useDispatch, useSelector } from 'react-redux';
 import "./login.css";
-import { Navigate } from 'react-router';
+import {useDispatch, useSelector } from 'react-redux';
+import {authLogin} from '../../store/index';
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  //const isloading = false;
 
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //const loading = useSelector(state => state.auth.isLoading);
+  const status = useSelector( state => state.status);
+  console.log(status);
 
-  //const status = useSelector( state => state.auth.status );
-
-  //const error = useSelector(state => state.auth.error);
+  const error = useSelector(state => state.error);
 
   const handleSubmit= (e) => {
-    //e.preventDefault();
-    //dispatch(login({user: username, password: password}))
-    console.log(5);
+    e.preventDefault();
+    dispatch(authLogin({user: username, password: password}))
+    console.log(dispatch);
+    //return login();
   }
 
   
@@ -30,7 +29,7 @@ const Login = () => {
        <div className="container-login">
          <div className="wrap-login">
            <form className="login-form" onSubmit= {handleSubmit}>
-             <div className="form-title"> Login </div>
+             
 
              <div className="wrap-input">
                <input
@@ -58,17 +57,13 @@ const Login = () => {
                <input type="submit" className="login-btn" value= "LOGIN"/>
              </div>
            </form>
-           
-           {/* {loading ? 
+
+           {status === 'pending' ? 
            (<p className="loading">loading </p>) : (null)}
-
-            {status ? 
-           (<Navigate to="/"/>) : (null)} */}
-
-            {/* {error != null? 
-           (<p className="loading">{Object.values(error)}</p>)
-            : (null)} */}
             
+           {error != null? 
+           (<p className="loading">{Object.values(error)}</p>)
+            : (null)}
             
             
          </div>
