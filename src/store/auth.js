@@ -11,6 +11,7 @@ const inititialState = {
     error: {},
 }
 
+//action creator
 export const login = createAsyncThunk(
     "Auth/Login",
     async ({user, password}) => {

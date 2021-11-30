@@ -7,6 +7,8 @@ import { Layout, App, Login } from "./views"
 import { createMirageServer } from "./mock/server"
 import './styles/index.css';
 
+
+
 createMirageServer()
 
 ReactDOM.render(
