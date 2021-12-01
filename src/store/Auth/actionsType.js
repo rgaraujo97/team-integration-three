@@ -1,4 +1,5 @@
 
-export const LOADING_REQUEST = 'LOADING_REQUEST';
-export const LOADING_SUCCESS = 'LOADING_SUCCESS';
-export const LOADING_FAILD= 'LOADING_FAILD';
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOAGIN_FAILED= 'LOGIN_FAILD';
+export const Error = "ERROR";

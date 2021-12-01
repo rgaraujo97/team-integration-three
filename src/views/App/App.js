@@ -6,13 +6,13 @@ import './App.css';
 
 const App = () => {
   return (
-    <> 
+<div > 
     <div className='rectangule-1'></div>
     <div>
       <Login />
       <Footer />
     </div>
-    </>
+  </div>
   );
 }
 

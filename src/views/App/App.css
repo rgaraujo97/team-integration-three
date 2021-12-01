@@ -1,9 +1,13 @@
-.rectangule-1{
-    position: absolute;
-width: 732px;
-height: 1024px;
-left: 0px;
-top: 0px;
 
-background: #C4C4C4;
+body{
+    margin: 0;
+    padding: 0;
 }
+/* .rectangule-1 {
+  position: absolute;
+  width: 732px;
+  height: 1024px;
+  top: 0%;
+  left: 0%;
+  background: #c4c4c4;
+} */

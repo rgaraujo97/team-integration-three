@@ -23,10 +23,6 @@ class User {
         }
 
         return new Response(200, {}, { bearer_token: "$2a$12$gyN4eaSqX3xEr9YLw9qeR.YxPLVzF6zulhHikOZwaDD8C.JAWPLou" })
-    }
-
-    
-    
+    } 
 }
-
 export default User
