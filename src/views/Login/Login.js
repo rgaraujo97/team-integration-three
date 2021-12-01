@@ -79,7 +79,7 @@ const Login = () => {
         </Box>
         {status === 'error' && 
               <div className={styles.lg_Messages}>
-                {error.user}{error.password}
+              <div className={styles.lg_MessagesDetail}> <b>Oops!</b> </div>  <div className={styles.lg_MessagesDetail}>{error.user}{error.password}</div>
               </div> 
             }
           {status==='success' && 

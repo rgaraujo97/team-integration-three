@@ -56,7 +56,7 @@ body {
 .lg_Messages{
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   color: #000000;
   font-weight: 500;
   width: 35vw;
@@ -69,13 +69,17 @@ body {
   justify-content: space-around;
   border-left: solid;
   border-left-color: var(--mainColor);
+  align-content: stretch;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .lg_bottomContainer{
   position: absolute;
   bottom: 0;
   height: 2.5rem;
+}
 
-
-
+.lg_MessagesDetail{
+  margin-left: 50px;
 }
