@@ -2,7 +2,7 @@ import * as Types from './actionsType';
 
 const initialState = {
     logStatus: "IDLE",
-    error: {},
+    error: null,
     isLoggedIn:false,
 }
 /**function requestLogin(){
@@ -40,14 +40,14 @@ export const requestLogin = ({ user, password }) => (dispatch) => {
             return {
                 logStatus: "pending",
                 isLoggedIn:false,
-                error: {},
+                error: null,
             }
             
          case Types.LOGIN_SUCCESS:
             return {
                 logStatus: "success",
                 isLoggedIn:true,
-                error:{}
+                error:null,
             }
          case Types.LOAGIN_FAILED:
             return {
