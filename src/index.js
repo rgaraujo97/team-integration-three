@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { store } from './store';
+import { store2 } from './store';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout, App, Login } from "./views"
@@ -14,7 +14,7 @@ createMirageServer()
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
+      <Provider store={store2}>
           <Routes>
             <Route path="/Layout" element={<Layout />}>
               <Route  element={<App />}  />

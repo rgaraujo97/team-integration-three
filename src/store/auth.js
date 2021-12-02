@@ -51,7 +51,6 @@ const AuthSlice = createSlice({
     initialState: inititialState,
     reducers:{
         setIddle(state){
-            // state.status=IDLE
             state.status = IDLE;
         }
     },
