@@ -36,7 +36,7 @@ const Login = () => {
           <div className={styles.lg_inputs}>
             <TextField
               className={styles.lg_input}
-              margin="normal"
+              margin="dense"
               required
               fullWidth
               id="email"
@@ -48,7 +48,7 @@ const Login = () => {
             />
             <TextField
               className={styles.lg_input}
-              margin="normal"
+              margin="dense"
               required
               fullWidth
               name="password"
@@ -82,7 +82,6 @@ const Login = () => {
             <p>
               <span>OPS!</span>
               <span className={styles.lg_errorMsgs}>
-                
                 {error.user}
                 {error.password}
               </span>
