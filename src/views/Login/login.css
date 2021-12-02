@@ -38,7 +38,6 @@ button:hover {
 .wrap-login {
     width: 320px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
     padding: 30px;
     background: #FFFFFF;
 }
@@ -67,4 +66,8 @@ button:hover {
     border: 1px solid #EFEFEF;
     box-sizing: border-box;
     border-radius: 4px;
+}
+
+.errorTable{
+    background: linear-gradient(0deg, rgba(68, 61, 246, 0.1), rgba(68, 61, 246, 0.1)), #FFFFFF;
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./login.css";
 import {useDispatch, useSelector } from 'react-redux';
 import {authLogin} from '../../store/index';
+import Ellipse from './Ellipse.png';
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -24,8 +25,12 @@ const Login = () => {
   
 
   return (
-   <div>
+   <div classname='bigOne'>
+     <div classname='greyThing'>
+
+     </div>
      <div className="container">
+      
        <div className="container-login">
          <div className="wrap-login">
            <form className="login-form" onSubmit= {handleSubmit}>
@@ -43,6 +48,10 @@ const Login = () => {
                />
              </div>
 
+            {error === "Should return invalid password" ? 
+           (<p className="error">{Object.values(error)}</p>)
+            : (null)}
+
              <div className="wrap-input">
                <input
                onChange={(e) => setPassword(e.target.value)}
@@ -59,10 +68,10 @@ const Login = () => {
            </form>
 
            {status === 'pending' ? 
-           (<p className="loading">loading </p>) : (null)}
+           (<p className="loading">loading <img src= {Ellipse} alt="pic" /></p> )  : (null)}
             
            {error != null? 
-           (<p className="loading">{Object.values(error)}</p>)
+           (<p classname="left">Ops!</p> && <p className="errorTable">{Object.values(error)}</p>)
             : (null)}
             
             
