@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import login from '../../store/Auth/actions';
 import { requestLogin } from '../../store/Auth/actions';
 import './Login.css';
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Login = () => {
 
@@ -12,18 +12,19 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
+
+  const loggedIn = useSelector(state => state.isLoggedIn);
   
-  const loggedIn = useSelector(state => state.login.logStatus);
+  const status = useSelector(state => state.logStatus);
 
-  const status = useSelector( state => state.login.logStatus);
-
-  const error = useSelector(state => state.login.error);
+  console.log(status)
+  const error = useSelector(state => state.error);
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(requestLogin({ email, password }));
-    console.log(requestLogin());
+    dispatch(requestLogin({ user:email, password }));
+   console.log(requestLogin());
   }
 
   return (
@@ -41,7 +42,8 @@ const Login = () => {
               name='email'
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              required />
+              required
+              />
             
             <TextField
               id="outlined-basic"
@@ -53,10 +55,25 @@ const Login = () => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               required />
+             
+            {/* {error && error !== 'null' ?
+              <div >
+                <p className='error-message'>Ops!</p>
+                <p className='error'>aahahhaaaaaha{ error }</p>
+              </div>
+              
+              : <p>Ops</p> }
+             */}
           </div>
-            <button type='submit'>Login</button>
-            <div className='loader'></div>
+          {status === "IDLE" ?
+             <CircularProgress className='loader'/>
+            :
+            null}
+         
+          <button type='submit'>Login</button>
+         
         </form>
+        
       </div>
     </div>
   );

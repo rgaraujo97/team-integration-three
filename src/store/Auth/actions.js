@@ -5,6 +5,7 @@ const initialState = {
     error: null,
     isLoggedIn:false,
 }
+
 /**function requestLogin(){
  * return function (dispatch){
  * dispatch({
@@ -25,7 +26,8 @@ export const requestLogin = ({ user, password }) => (dispatch) => {
     }).then(async resp => {
 
         const response = await resp.json();
-        
+    
+        console.log(response);
         if (!resp.ok) {
             dispatch({ type: Types.LOAGIN_FAILED, data: response });
         } else {
@@ -34,15 +36,17 @@ export const requestLogin = ({ user, password }) => (dispatch) => {
     });
 }
 
- const login = (state = initialState, action) => {
+const login = (state = initialState, action) => {
+
     switch (action.type) {
+        
         case Types.LOGIN_REQUEST:
             return {
                 logStatus: "pending",
                 isLoggedIn:false,
                 error: null,
             }
-            
+           
          case Types.LOGIN_SUCCESS:
             return {
                 logStatus: "success",
