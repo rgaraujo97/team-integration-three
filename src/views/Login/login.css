@@ -8,8 +8,23 @@ button:hover {
   
 }
 
+.bigOne{
+display:flex;
+height:100vh;
+}
+
+.greyThing{
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    background-color: #C4C4C4;
+}
+
 .container {
-    width: 100%;
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    background: #E5E5E5;
 }
 
 .container-login {
@@ -29,10 +44,16 @@ button:hover {
 
 }
 
+.loginLoader{
+    background: #443DF6;
+    border-radius: 8px;
+}
+
 .container-login-button {
   margin-top: 10px;
   display: flex;
   justify-content: center;
+  
 }
 
 .wrap-login {
@@ -68,6 +89,37 @@ button:hover {
     border-radius: 4px;
 }
 
-.errorTable{
+.loader {
+    display: flex;
+    flex: column;
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 100px;
+    width: 8px;
+    height: 8px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.errorCase{
+    height: 64px;
+    margin-top: 10px;
+    display:flex;
     background: linear-gradient(0deg, rgba(68, 61, 246, 0.1), rgba(68, 61, 246, 0.1)), #FFFFFF;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.errorWarning{
+    display:flex;
+    flex-direction:column;
+    width: 70%;
 }
