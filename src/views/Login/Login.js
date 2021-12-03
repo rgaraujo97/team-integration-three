@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../../store/index";
+import { TextField } from "@material-ui/core";
+import { Navigate } from 'react-router';
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -27,7 +29,17 @@ const Login = () => {
           <div className="wrap-login">
             <form className="login-form" onSubmit={handleSubmit}>
               <div className="wrap-input">
-                <input
+              <TextField
+              className="input-form"
+              margin="normal"
+              fullWidth
+              name="username"
+              label="username"
+              type="text"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+                {/* <input
                   onChange={(e) => setUsername(e.target.value)}
                   className="input-form"
                   type="text"
@@ -35,10 +47,21 @@ const Login = () => {
                   id="username"
                   placeholder="User"
                   autoComplete="off"
-                />
+                /> */}
               </div>
 
-              <div className="wrap-input">
+              <TextField
+              className="input-form"
+              margin="normal"
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+              {/* <div className="wrap-input">
                 <input
                   onChange={(e) => setPassword(e.target.value)}
                   className="input-form"
@@ -46,13 +69,14 @@ const Login = () => {
                   name="password"
                   placeholder="Password"
                 />
-              </div>
+              </div> */}
 
               <div className="container-login-button">
-              <div className="loginLoader">
+                
+                <button type="submit" className="login-btn" value="LOGIN">
                 {status === "pending" ? <div class="loader"></div> : null}
-                <input type="submit" className="login-btn" value="LOGIN" />
-              </div>
+                <p className="loginText">Login</p>
+                </button>
               </div>
             </form>
 
@@ -62,6 +86,9 @@ const Login = () => {
                 <p className="errorWarning">{Object.values(error)}</p>
               </div>
             ) : null}
+
+            {status === "success" ? 
+           (<Navigate to="/"/>) : (null)}
           </div>
         </div>
       </div>

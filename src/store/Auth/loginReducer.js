@@ -7,7 +7,7 @@ const initialState = {
 LOADING = 'pending',
 ERROR = 'error'
 
-const auth =(state= initialState, action) => {
+export const auth =(state= initialState, action) => {
 
     switch(action.type){
   
