@@ -6,6 +6,7 @@ const initialState = {
     error: null,
     isLoggedIn:false,
 }
+
 //ACTIONS TO DO A REQUEST TO AN API, WHERE USER CAN LOGIN INTO AN APP
 export const requestReducer = createAsyncThunk(
     "auth/login", 
@@ -60,18 +61,3 @@ const handleLoginStatus = (state, {payload, status}) => {
 }
 
 export default login;
-
-/**
- * ROOT-REDUCER: uses a single root reducer 
- * function that accepts the current state 
- * (and an action) as input and returns a new state
- * 
- * import {combineReducers} from 'redux';
- * import login from './auth.js';
- * 
- * const rootReducer = combinaReducers({
- * login: login,
- * })
- * 
- * export default rootReducer;
- */

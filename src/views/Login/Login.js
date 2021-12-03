@@ -13,9 +13,12 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  // const loggedIn = useSelector(state => state.login.isLoggedIn);
-  // const status = useSelector(state => state.login.logStatus);
-  // const error = useSelector(state => state.login.error);
+  const loggedIn = useSelector(state => state.login.isLoggedIn);
+  console.log(loggedIn);
+  const status = useSelector(state => state.login.logStatus);
+  console.log(status);
+  const error = useSelector(state => state.login.error);
+  console.log(error);
 
   const handleSubmit = (event) => {
     event.preventDefault();
