@@ -6,51 +6,62 @@ import { TextField } from "@material-ui/core";
 import { Navigate } from 'react-router';
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-
-  let userError = null;
+  const email = "@";
+  const[valid, setvalid] = useState(true);
 
   const dispatch = useDispatch();
 
   const status = useSelector((state) => state.status);
+  console.log(status);
 
   const error = useSelector((state) => state.error);
+  console.log(error);
+  let cliked = false;
+  console.log(cliked);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authLogin(username, password));
-    let userError = Object.values(error);
+    dispatch(authLogin(user, password));
+    {if(user.indexOf('@')>=0){
+      setvalid(true);
+    } else
+    setvalid(false);
+    }
     //return login();
   };
 
   return (
     <div className="bigOne">
-      <div className="greyThing"></div>
+      <div className="greyThing disappear"></div>
       <div className="container">
         <div className="container-login">
           <div className="wrap-login">
             <form className="login-form" onSubmit={handleSubmit}>
               <div className="wrap-input">
-              <TextField
+              
+            {valid ? <TextField
               className="input-form"
               margin="normal"
               fullWidth
-              name="username"
-              label="username"
+              name="user"
+              label="user"
               type="text"
-              id="username"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-                {/* <input
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="input-form"
-                  type="text"
-                  name="username"
-                  id="username"
-                  placeholder="User"
-                  autoComplete="off"
-                /> */}
+              id="user"
+              onChange={(e) => setUser(e.target.value)}
+        />: <TextField
+              className="input-form"
+              margin="normal"
+              fullWidth
+              name="user"
+              label="user"
+              type="text"
+              id="user"
+              error
+              helperText="Invalid email"
+              onChange={(e) => setUser(e.target.value)}
+            />}
               </div>
 
               <TextField
@@ -89,9 +100,11 @@ const Login = () => {
                 <p className="errorWarning">{Object.values(error)}</p>
               </div>
             ) : null}
+          
 
             {status === "success" ? 
            (<Navigate to="/"/>) : (null)}
+            
           </div>
         </div>
         <p className="bellow">Rafael Costa - Team Integration</p>

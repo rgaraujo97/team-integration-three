@@ -2,8 +2,7 @@ import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from "redux-thunk";
 import {auth} from "./Auth/loginReducer"
-// import { configureStore } from '@reduxjs/toolkit';
-// import { createAsyncThunk } from "@reduxjs/toolkit"
+import logger from "redux-logger";
 
 export const authLogin = (user, password) => (dispatch) => {
   dispatch({ type: "LOGIN_REQUESTED" });
@@ -29,4 +28,5 @@ export const authLogin = (user, password) => (dispatch) => {
 const composedEnchancer = composeWithDevTools(applyMiddleware(thunk));
 
 export const store = createStore(auth, composedEnchancer);
+
 

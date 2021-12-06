@@ -4313,6 +4313,11 @@
   "resolved" "https://inditex.jfrog.io/inditex/api/npm/node-public/dedent/-/dedent-0.7.0.tgz"
   "version" "0.7.0"
 
+"deep-diff@^0.3.5":
+  "integrity" "sha1-wB3mPvsO7JeYgB1Ax+Da4ltYLIQ="
+  "resolved" "https://inditex.jfrog.io/inditex/api/npm/node-public/deep-diff/-/deep-diff-0.3.8.tgz"
+  "version" "0.3.8"
+
 "deep-equal@^1.0.1":
   "integrity" "sha1-tcmMlCzv+vfLBR4k4UNKJaLmB2o="
   "resolved" "https://inditex.jfrog.io/inditex/api/npm/node-public/deep-equal/-/deep-equal-1.1.1.tgz"
@@ -9842,6 +9847,13 @@
   "integrity" "sha1-a3ZOgCi1B63LdaHK55D3Hmvgiuc="
   "resolved" "https://inditex.jfrog.io/inditex/api/npm/node-public/redux-devtools-extension/-/redux-devtools-extension-2.13.9.tgz"
   "version" "2.13.9"
+
+"redux-logger@^3.0.6":
+  "integrity" "sha1-91VZZvMJjzyIYExEnPC69XeCdL8="
+  "resolved" "https://inditex.jfrog.io/inditex/api/npm/node-public/redux-logger/-/redux-logger-3.0.6.tgz"
+  "version" "3.0.6"
+  dependencies:
+    "deep-diff" "^0.3.5"
 
 "redux-thunk@^2.3.0", "redux-thunk@^2.4.1":
   "integrity" "sha1-DdgELPR4aPSylpmUHeA8kwGnVxQ="
