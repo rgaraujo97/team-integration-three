@@ -1,9 +1,6 @@
 footer{
-position: absolute;
 width: 292px;
 height: 24px;
-left: 208px;
-/* top: 980px; */
 
 font-family: Roboto;
 font-style: normal;
@@ -12,7 +9,7 @@ font-size: 18px;
 line-height: 24px;
 color: #8D9091;
 
-margin:860px 207px 28px 700px;
+margin:-65px 207px 28px 950px;
 }
 
 footer p{

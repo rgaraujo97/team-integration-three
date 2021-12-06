@@ -1,51 +1,48 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { useDispatch, useSelector } from 'react-redux';
-import login from '../../store/Auth/actions';
+import { useDispatch} from 'react-redux';
 import { requestLogin } from '../../store/Auth/actions';
 import './Login.css';
-import CircularProgress from '@mui/material/CircularProgress';
+import Loader from "react-loader-spinner";
+import { connect } from 'react-redux';
+import login from '../../store/Auth/actions';
 
-const Login = () => {
+const Login = (props) => {
 
-  const [email, setEmail] = useState("");
+  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch();
-
-  const loggedIn = useSelector(state => state.isLoggedIn);
-  
-  const status = useSelector(state => state.logStatus);
-
-  console.log(status)
-  const error = useSelector(state => state.error);
-
+  //const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(requestLogin({ user:email, password }));
-   console.log(requestLogin());
+    props.login( user, password );
+    
   }
 
   return (
     <div className='main-container'>
       <div className='rectangule-1'></div>
       <div className='container'>
+       
         <form className='form' onSubmit={handleSubmit}>
           <div className='inputs'>
+            
             <TextField
+              error={props.error && props.error.user}
               id="outlined-basic"
               label="Email address"
               variant="outlined"
               className='input-1'
               type='email'
               name='email'
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              value={user}
+              onChange={(event) => setUser(event.target.value)}
               required
               />
             
             <TextField
+              error={props.error && props.error.password}
               id="outlined-basic"
               label="Password"
               variant="outlined"
@@ -55,28 +52,43 @@ const Login = () => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               required />
-             
-            {/* {error && error !== 'null' ?
-              <div >
-                <p className='error-message'>Ops!</p>
-                <p className='error'>aahahhaaaaaha{ error }</p>
-              </div>
-              
-              : <p>Ops</p> }
-             */}
           </div>
-          {status === "IDLE" ?
-             <CircularProgress className='loader'/>
+          
+            {props.status === "pending" ?
+              <div className='loader'> </div>
             :
-            null}
+                null}
+
+           <button type='submit' className='login'>Login</button>
+          {props.error && props.error.user || props.error.password }
          
-          <button type='submit'>Login</button>
-         
-        </form>
-        
+        </form>      
       </div>
-    </div>
+      </div>
   );
 }
 
-export default Login;
+//TO CONNECT OUR STORE TO MY COMPONENT LOGIN
+function mapStateToProps(state) {
+
+  return {
+    error: state.login.error,
+    status: state.login.logStatus,
+    
+  };
+ 
+}
+
+  function mapDispatchToProps(dispatch) {
+    return {
+      login (user, password) {
+        const actions = requestLogin({ user, password })
+        dispatch(actions);
+     }
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+//export default Login;
+  

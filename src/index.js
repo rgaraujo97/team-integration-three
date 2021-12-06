@@ -6,9 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout, App, Login } from "./views"
 import { createMirageServer } from "./mock/server"
 import './styles/index.css';
-//import { configureStore } from '../../store/Auth/store';
 
-//const store = configureStore();
 
 createMirageServer()
 
