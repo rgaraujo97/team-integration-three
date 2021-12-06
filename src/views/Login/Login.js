@@ -9,6 +9,8 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  let userError = null;
+
   const dispatch = useDispatch();
 
   const status = useSelector((state) => state.status);
@@ -18,6 +20,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(authLogin(username, password));
+    let userError = Object.values(error);
     //return login();
   };
 
@@ -91,6 +94,7 @@ const Login = () => {
            (<Navigate to="/"/>) : (null)}
           </div>
         </div>
+        <p className="bellow">Rafael Costa - Team Integration</p>
       </div>
     </div>
   );
