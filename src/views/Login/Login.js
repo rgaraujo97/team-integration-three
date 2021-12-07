@@ -1,33 +1,47 @@
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAction } from "../../store";
 import Footer from "../App/components/Footer";
 import styles from "./Login.module.css";
+import { styled } from "@mui/material/styles";
+import { ErrorSharp } from "@mui/icons-material";
+import { loginAction } from "../../store";
+import { get_password, get_user } from "../App/actions";
 
-const Login = () => {
-  const status = useSelector((state) => state.auth.status);
-  const error = useSelector((state) => state.auth.error);
-  const [log, setLog] = useState(false);
+import { connect } from 'react-redux';
 
+const BootstrapButton = styled(Button)({
+  boxShadow: "none",
+  backgroundColor: "#443DF6",
+  borderColor: "#443DF6",
+});
+const Login = (props) => {
+  
   const [user, setUser] = useState();
   const [password, setPassword] = useState();
 
-  const dispatch = useDispatch();
+
+  
 
   function handleChangeUser(e) {
-    setUser(e.target.value);
+    setUser(e.target.value)
+    
   }
 
   function handleChangePassword(e) {
-    setPassword(e.target.value);
+    setPassword(e.target.value)
   }
 
   function handleSubmit(e) {
-    dispatch(loginAction({ user, password }));
+    props.login({user,password})
   }
 
-  console.log(status);
+  console.log(user)
+  
+  console.log(password)
+
+
+
   return (
     <div className={styles.lg_mainContainer}>
       <div className={styles.lg_half1}></div>
@@ -36,21 +50,33 @@ const Login = () => {
           <div className={styles.lg_inputs}>
             <TextField
               className={styles.lg_input}
+              error={props.error.user != null}
+              sx={{ width: "20vw" }}
               margin="dense"
+              size="small"
               required
               fullWidth
               id="email"
+              variant="outlined"
               label="Email Address"
               name="email"
               autoComplete="email"
               onChange={handleChangeUser}
               autoFocus
             />
+            {props.error.user == "This is not a valid email" ? (
+              <div className={styles.userError}>
+                <span>{props.error.user}</span>
+              </div>
+            ) : null}
             <TextField
+              error={props.error.password != null}
               className={styles.lg_input}
+              sx={{ width: "20vw", paddingBottom: "2.12vh" }}
               margin="dense"
+              size="small"
               required
-              fullWidth
+              variant="outlined"
               name="password"
               label="Password"
               type="password"
@@ -59,41 +85,64 @@ const Login = () => {
               autoComplete="current-password"
             />
             <div className={styles.lg_loginButton}>
-              <Button
+              <BootstrapButton
                 className={styles.lg_loginBtn}
                 type="submit"
                 variant="contained"
                 onClick={handleSubmit}
               >
                 <div className={styles.lg_login}>
-                  {status === "pending" ? (
+                  {props.status === "pending" ? (
                     <div className={styles.loader}></div>
                   ) : null}
-                  {/* <div className={styles.loader}>                
-              </div> */}
+                
                   <div className={styles.lg_placeholderLogin}>login</div>
                 </div>
-              </Button>
+              </BootstrapButton>
             </div>
           </div>
         </div>
-        <div className={styles.lg_errors}>
-          {status === "error" ? (
-            <p>
-              <span>OPS!</span>
-              <span className={styles.lg_errorMsgs}>
-                {error.user}
-                {error.password}
+
+        {props.status === "error" && props.error.user !== "This is not a valid email" ? (
+          <div className={styles.lg_errors}>
+            <div className={styles.lg_Ops}>
+              <span>Ops!</span>
+            </div>
+            <div className={styles.lg_errorMsgs}>
+              <span>
+                {props.error.user}
+                {props.error.password}
               </span>
-            </p>
-          ) : null}
-        </div>
+            </div>
+          </div>
+        ) : null}
+
         <div className={styles.lg_footer}>
           <Footer />
         </div>
       </div>
     </div>
   );
+ 
+
+  
 };
 
-export default Login;
+const mapStateToProps = (state) => {  
+  return {
+    status: state.auth.status,
+    error: state.auth.error,    
+  }
+}
+
+
+const mapDispatchToProps = () => dispatch => { 
+  return{    
+    login: ({user, password}) => {
+      loginAction({user,password})(dispatch);
+    }
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps())(Login);
