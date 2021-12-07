@@ -1,11 +1,11 @@
 import { React, useState} from 'react';
-import { Box, Button, Container, TextField } from '@mui/material';
-import styles from './Login.module.css';
+import { Button, TextField } from '@mui/material';
+//import styles from './Login.module.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { login } from '../../store/auth';
 
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet"></link>
+import { login } from '../../../store/auth';
+import '../Login.css';
+//import {login} from '../../../App2/main/user/userActions'
 
 const Login2 = () => {
 
@@ -31,16 +31,16 @@ const Login2 = () => {
 
 
   return (
-    <>
-      <Container className={styles.lg_containerDiv} maxWidth="sm">
-        <Box className={styles.lg_formLogin}  component="form"  noValidate   autoComplete="off" >
+    <div  className="container-flex row"   >
+      <div  className="container-flex column grey display-only"  >
+      
+      </div>
+    <div className="container-flex column"  maxWidth="sm">
+      <form  className="form-group--container formCenter" component="form"  noValidate   autoComplete="off" >
          
-          <div className={styles.lg_formInputsDiv}>
-
 
 {/*  */}
             <TextField
-              className={styles.lg_formInputs}
               margin="normal"
               required
               fullWidth
@@ -52,7 +52,6 @@ const Login2 = () => {
             />
             
             <TextField
-              className={styles.lg_formInputs}
               margin="normal"
               required
               fullWidth
@@ -63,11 +62,11 @@ const Login2 = () => {
               onChange={handleChangePassword}
             />
               <div>
-                <Button className={styles.lg_loginBtn} variant="contained" onClick={handleLogin}>
+                <Button className="" variant="contained" onClick={handleLogin}>
                     Login
                   </Button>
                 </div>
-          </div>
+         
           
        
              
@@ -76,22 +75,22 @@ const Login2 = () => {
 
            
           
-        </Box>
+        </form>
         {status === 'error' && 
-              <div className={styles.lg_Messages}>
-              <div className={styles.lg_MessagesDetail}> <b>Oops!</b> </div>  <div className={styles.lg_MessagesDetail}>{error.user}{error.password}</div>
+              <div /*className={styles.lg_Messages}*/>
+              <div /*className={styles.lg_MessagesDetail}*/> <b>Oops!</b> </div>  <div /*className={styles.lg_MessagesDetail}*/>{error.user}{error.password}</div>
               </div> 
             }
           {status==='success' && 
-            <div className={styles.lg_Messages}>
+            <div /*className={styles.lg_Messages}*/>
               {status}
             </div>
           }
-        <footer className={styles.lg_bottomContainer}>Igor Ponte - Team Integration</footer>
-      </Container> 
+        <footer /*className={styles.lg_bottomContainer}*/>Igor Ponte - Team Integration</footer>
+      </div> 
+    </div>  
       
-      
-    </>
+
   );
 }
 

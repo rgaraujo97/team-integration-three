@@ -5,7 +5,6 @@ import  { SUCCESS , IDLE, LOADING, ERROR } from "./constants";
 
 
 export const login = (user, password) =>(dispatch) =>{
-    
         dispatch({type:"Auth/REQUESTED", payload:""})
 
         fetch('/api/auth/login',{
@@ -25,10 +24,10 @@ export const login = (user, password) =>(dispatch) =>{
             if(!res.ok){
                
                 result={type:"Auth/FAILED", payload:response};
-                console.log(result)
             }else{
                result={type:"Auth/LOGIN", payload:""};
             }
            dispatch(result);
         })
+        
     }

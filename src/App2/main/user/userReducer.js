@@ -5,23 +5,25 @@ import  { SUCCESS , IDLE, LOADING, ERROR, FAILED } from "./constants";
 
 const inititialState = {
     status: IDLE,
-    error: {},
+    error: {}
+    
 }
 
 const userReducer = (state = inititialState, action) => {
     
     switch(action.type) {
         case "Auth/REQUESTED":
-                return {...state,status: LOADING,
-                    error: action.payload}
+                return {...state,
+                    status: LOADING }
 
         case"Auth/FAILED":
-        console.log(action.payload)
-            return {...state,status: FAILED,
+            return {...state,
+                status: FAILED,
                 error: action.payload}
 
         case "Auth/LOGIN":
-            return {...state,status: SUCCESS,
+            return {...state,
+                    status: SUCCESS,
                     error: action.payload}
         default:
             return state

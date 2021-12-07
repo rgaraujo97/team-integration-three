@@ -11,12 +11,21 @@ import thunk from 'redux-thunk'
 import reducer from '../App2/main/reducer'
 
 
- export const store = configureStore({
+//redux toolkit
+ export const store2 = configureStore({
    //"".reducer e uma funcao do reducer
   reducer: {Auth: AuthSlice.reducer }
 });
 
+//Nativo + middleware
+export const store =  applyMiddleware(thunk,multi,promise)(createStore)(reducer);
 
-export const store2 =  applyMiddleware(thunk,multi,promise)(createStore)(reducer);
-
-export const store3 = createStore(reducer);
+//Nativo
+//export const store3 =  createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__());
+export const store3 =  createStore(reducer);
+/*
+export const store4 = applyMiddleware(multi)(configureStore({
+  //"".reducer e uma funcao do reducer
+ reducer: {Auth: AuthSlice.reducer }
+}));
+*/
