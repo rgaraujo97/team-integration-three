@@ -1,32 +1,24 @@
 import React, { useState } from "react";
 import "./login.css";
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../../store/index";
 import { TextField } from "@material-ui/core";
 import { Navigate } from 'react-router';
 
-const Login = () => {
+const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  let userError = null;
-
-  const dispatch = useDispatch();
-
-  const status = useSelector((state) => state.status);
-
-  const error = useSelector((state) => state.error);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authLogin(username, password));
-    let userError = Object.values(error);
-    //return login();
+    console.log(username, password);
+    props.login(username, password);
+    debugger;
   };
 
   return (
     <div className="bigOne">
-      <div className="greyThing"></div>
+      <div className="greyThing disappear"></div>
       <div className="container">
         <div className="container-login">
           <div className="wrap-login">
@@ -77,20 +69,20 @@ const Login = () => {
               <div className="container-login-button">
                 
                 <button type="submit" className="login-btn" value="LOGIN">
-                {status === "pending" ? <div class="loader"></div> : null}
+                {props.status === "pending" ? <div class="loader"></div> : null}
                 <p className="loginText">Login</p>
                 </button>
               </div>
             </form>
 
-            {status === "error" ? (
+            {props.status === "error" ? (
               <div className= "errorCase">
                 <p className="left">Ops!</p>
-                <p className="errorWarning">{Object.values(error)}</p>
+                <p className="errorWarning">{Object.values(props.error)}</p>
               </div>
             ) : null}
 
-            {status === "success" ? 
+            {props.status === "success" ? 
            (<Navigate to="/"/>) : (null)}
           </div>
         </div>
@@ -98,6 +90,17 @@ const Login = () => {
       </div>
     </div>
   );
+}
+
+const mapStateToProps = (state) => {
+    return{status: state.status,
+          error: state.error}
 };
 
-export default Login;
+const mapDispatchToProps = () => dispatch =>{
+  return {
+    login: (username, password) => {authLogin(username, password)(dispatch)}
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps())(Login)

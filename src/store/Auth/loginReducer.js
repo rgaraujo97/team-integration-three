@@ -1,33 +1,33 @@
-const initialState = {
-    status: false,
-    error: {}
-  }
+// const initialState = {
+//     status: false,
+//     error: {}
+//   }
 
-  const SUCCESS = 'success',
-LOADING = 'pending',
-ERROR = 'error'
+//   const SUCCESS = 'success',
+// LOADING = 'pending',
+// ERROR = 'error'
 
-export const auth =(state= initialState, action) => {
+// export const auth =(state= initialState, action) => {
 
-    switch(action.type){
+//     switch(action.type){
   
-      case 'LOGIN_REQUESTED':
-        return {
-          status: LOADING,
-        }
+//       case 'LOGIN_REQUESTED':
+//         return {
+//           status: LOADING,
+//         }
   
-      case 'LOGIN_SUCCESS':
-        return{
-          status: SUCCESS,
-        }
+//       case 'LOGIN_SUCCESS':
+//         return{
+//           status: SUCCESS,
+//         }
   
-       case 'LOGIN_FAILED':
-          return{
-          status: ERROR,
-          error:action.data  
-        }
+//        case 'LOGIN_FAILED':
+//           return{
+//           status: ERROR,
+//           error:action.data  
+//         }
   
-          default:
-            return state;
-    }
-  }
+//           default:
+//             return state;
+//     }
+//   }
