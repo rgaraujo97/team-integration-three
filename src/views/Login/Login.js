@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const email = "@";
   const[valid, setvalid] = useState(true);
+  const[empty, setEmpty] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -24,11 +25,14 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(authLogin(user, password));
-    {if(user.indexOf('@')>=0){
+    if(user.indexOf('@')>=0){
       setvalid(true);
     } else
     setvalid(false);
-    }
+    if(password===""){
+      setEmpty(true);
+    } else
+    setEmpty(false);
     //return login();
   };
 
@@ -40,13 +44,14 @@ const Login = () => {
           <div className="wrap-login">
             <form className="login-form" onSubmit={handleSubmit}>
               <div className="wrap-input">
+
               
             {valid ? <TextField
               className="input-form"
               margin="normal"
               fullWidth
               name="user"
-              label="user"
+              label="username"
               type="text"
               id="user"
               onChange={(e) => setUser(e.target.value)}
@@ -55,7 +60,7 @@ const Login = () => {
               margin="normal"
               fullWidth
               name="user"
-              label="user"
+              label="username"
               type="text"
               id="user"
               error
@@ -64,7 +69,7 @@ const Login = () => {
             />}
               </div>
 
-              <TextField
+              {!empty ? <TextField
               className="input-form"
               margin="normal"
               fullWidth
@@ -73,7 +78,20 @@ const Login = () => {
               type="password"
               id="password"
               onChange={(e) => setPassword(e.target.value)}
-            />
+            /> :
+            <TextField
+              className="input-form"
+              margin="normal"
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              error
+              onChange={(e) => setPassword(e.target.value)}
+              />
+            }
+              
 
               {/* <div className="wrap-input">
                 <input
