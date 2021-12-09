@@ -1,20 +1,17 @@
-footer{
-position: absolute;
-width: 292px;
-height: 24px;
-left: 208px;
-/* top: 980px; */
+footer p {
+  background: none;
+  width: 292px;
+  height: 24px;
+  left: 208px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 24px;
-color: #8D9091;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #8d9091;
 
-margin:860px 207px 28px 700px;
+  margin:-45px 207px 28px 950px;
+  text-align: center;
 }
 
-footer p{
-    text-align: center;
-}

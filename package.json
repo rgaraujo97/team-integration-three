@@ -16,7 +16,9 @@
     "react-redux": "^7.2.3",
     "react-router-dom": "6",
     "react-scripts": "4.0.3",
-    "redux-devtools-extension": "^2.13.9"
+    "redux-devtools-extension": "^2.13.9",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,6 +44,7 @@
   },
   "devDependencies": {
     "miragejs": "^0.1.42",
-    "redux-devtools": "^3.7.0"
+    "redux-devtools": "^3.7.0",
+    "redux-thunk": "^2.4.1"
   }
 }

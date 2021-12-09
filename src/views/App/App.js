@@ -4,7 +4,7 @@ import Login from '../Login/Login';
 
 const App = () => {
   return (
-        <div>
+      <div>
       <Login />
       <Footer />
     </div>

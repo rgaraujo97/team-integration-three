@@ -1,9 +1,14 @@
 import * as Types from './actionsType';
-import login from './auth';
+import reducer from './reducer';
 
+//ACTION CREATOR
 function loginUser() {
     return {
         type: Types.LOGIN_REQUEST,
-        payload:login,
+        payload: reducer,//login
     }
 }
+
+export default loginUser;
+
+//store.dispatch(loginUser());
