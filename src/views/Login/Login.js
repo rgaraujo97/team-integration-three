@@ -29,7 +29,7 @@ const Login = (props) => {
             <TextField
               error={props.error && props.error.user}
               id="outlined-basic"
-              label="Email address"
+              label="Username"
               variant="outlined"
               className='input-1'
               type='email'

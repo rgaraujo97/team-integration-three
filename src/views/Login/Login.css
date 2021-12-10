@@ -10,7 +10,8 @@ body {
   display: flex;
   flex-direction: row;
 }
-.rectangule-1 {position: absolute;
+.rectangule-1 {
+  position: absolute;
   width: 732px !important;
   height: 1024px;
   background: #c4c4c4;
@@ -166,4 +167,88 @@ form button {
   color: #000000;
   font-size: 14px;
   margin-top: 24px;
+}
+
+@media screen and (max-width: 992px) {
+  .main-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+.rectangule-1 {
+  display: none;
+}
+.container {
+margin-top: 0x;
+margin-left: 500px;
+  height: 926px;
+  width: 428px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.form{
+  background: #fbfbfb;
+  height: 926px;
+  width: 428px;
+  margin-left: 732px;
+  top: 0%;
+  
+}
+
+
+form button {
+  background: #443df6;
+  width: 120px;
+  height: 56px;
+  left: 16px;
+  right: 14.22px;
+
+  border-radius: 8px;
+  border: 1px solid #efefef;
+  color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 32px;
+  cursor: pointer;
+
+  margin: 40px 60px 10px 80px;
+}
+
+
+.input-1 {
+  width: 296px;
+  height: 48px;
+
+  left: 0px;
+  right: -0.47px;
+  bottom: 0px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  margin-top: 92px;
+  margin-left: 30px !important;
+  margin-bottom: 240px;
+  border-radius: 4px;
+}
+
+.input-2 {
+  width: 296px;
+  height: 48px;
+  top: 8px;
+
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  margin-right: 129.77px;
+  margin-left: 30px !important;
+  margin-bottom: 100px;
+}
 }
