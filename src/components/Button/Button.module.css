@@ -1,0 +1,25 @@
+
+
+.primary {
+    color: var(--light);
+    background-color: var(--primary);
+    font-size: var(--font-md);
+    display: flex;
+}
+
+.defaultSize {
+    padding: 12px 24px;
+    border-radius: 8px;
+}
+
+.text {
+    line-height: 32px;
+}
+
+.childrenContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 72px;
+    justify-content: center;
+}
