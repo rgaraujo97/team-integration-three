@@ -7,8 +7,9 @@ import Box from "@mui/material/Box";
 export const Button = (props) => {
     const { children, isLoading } = props
 
+    
     return (
-        <button {...props} className={cn([styles.primary, styles.defaultSize])}>
+        <button {...props} className={cn([styles.primary, styles.defaultSize, props.className])}>
             <div className={styles.childrenContainer}>
                 { isLoading && 
                 <Box sx={{ position: "relative", padding: "4px 0", marginRight: "8px" }}>

@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.landingColumn {
+    display: flex;
+    flex-direction: column;
+    background-color: #C4C4C4;
+    flex: 1;
+}
+
+
+.formColumn {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 0 75px;
+}
+
+.cta {
+    margin-top:32px;
+}
+
+@media screen and (max-width: 768px) {
+    .landingColumn {
+        display: none
+    }
+    .formColumn {
+        padding: 20px;
+    }
+}

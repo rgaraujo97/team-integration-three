@@ -1,0 +1,30 @@
+.alertContainer {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.alertContainer h3 {
+    margin: 0;
+    padding-left: 38px;
+    font-size: var(--font-sm);
+    align-self: center;
+    font-weight: bold;
+}
+
+
+.alertContainer h6 {
+    padding-left: 36px;
+}
+
+.default {
+    background-color: #13C4A3;
+}
+
+.primary {
+    background: var(--linear-primary);
+}
+
+.alertContainer--primary {
+    border-left: 2px var(--primary) solid;
+}
